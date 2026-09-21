@@ -1,6 +1,6 @@
 ﻿using P2FixAnAppDotNetCode.Models.Repositories;
 using System.Collections.Generic;
-using System.Linq;
+using System;
 
 namespace P2FixAnAppDotNetCode.Models.Services
 {
@@ -34,7 +34,14 @@ namespace P2FixAnAppDotNetCode.Models.Services
         public Product GetProductById(int id)
         {
             // TODO implement the method
-            return null;
+            if (id > 0 )
+           { 
+                return _productRepository.GetProductById(id);
+            }
+            else
+            {
+                throw new ArgumentException("L'ID doit être supérieur à zéro");
+            }
         }
 
         /// <summary>
