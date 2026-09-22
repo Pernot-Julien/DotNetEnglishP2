@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Razor.Language;
+using Microsoft.AspNetCore.Server.Kestrel.Internal.System.Runtime;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace P2FixAnAppDotNetCode.Models
@@ -13,13 +17,16 @@ namespace P2FixAnAppDotNetCode.Models
         /// </summary>
         public IEnumerable<CartLine> Lines => GetCartLineList();
 
+
+        private List<CartLine> _persistCartLines = new List<CartLine>(); // stocke l'état du panier entre les appels
+
         /// <summary>
         /// Return the actual cartline list
         /// </summary>
         /// <returns></returns>
         private List<CartLine> GetCartLineList()
         {
-            return new List<CartLine>();
+            return _persistCartLines;
         }
 
         /// <summary>
@@ -28,6 +35,27 @@ namespace P2FixAnAppDotNetCode.Models
         public void AddItem(Product product, int quantity)
         {
             // TODO implement the method
+            if (quantity > 0)
+            {
+                List<CartLine> cartLineList = GetCartLineList(); 
+                CartLine newCartLine = new CartLine();
+                newCartLine.Product = product;
+                newCartLine.Quantity = quantity;
+                bool sameProduct = false;
+
+                foreach (CartLine cartLine in cartLineList)
+                {
+                    if (cartLine.Product.Id == product.Id)
+                    {
+                        cartLine.Quantity += quantity;
+                        sameProduct = true;
+                    }
+                }
+                if (sameProduct == false) 
+                {
+                    cartLineList.Add(newCartLine);
+                }    
+            }
         }
 
         /// <summary>

@@ -21,8 +21,6 @@ namespace P2FixAnAppDotNetCode.Controllers
             List<Product> products = _productService.GetAllProducts();
             return View(products);
         }
-
-        //Ajout de la méthode pour afficher la vue d'un produit en particulier 
         public IActionResult ProductDetail( int id)
         {
             Product product = _productService.GetProductById(id);
