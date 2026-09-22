@@ -41,6 +41,7 @@ namespace P2FixAnAppDotNetCode.Models
                 CartLine newCartLine = new CartLine();
                 newCartLine.Product = product;
                 newCartLine.Quantity = quantity;
+
                 bool sameProduct = false;
 
                 foreach (CartLine cartLine in cartLineList)
@@ -70,7 +71,13 @@ namespace P2FixAnAppDotNetCode.Models
         public double GetTotalValue()
         {
             // TODO implement the method
-            return 0.0;
+            List<CartLine> cartLineList = GetCartLineList();
+            double totalValue = 0;
+            foreach ( CartLine cartLineListItem in cartLineList)
+            {
+                 totalValue += cartLineListItem.Quantity * cartLineListItem.Product.Price; 
+            }
+            return totalValue;
         }
 
         /// <summary>
