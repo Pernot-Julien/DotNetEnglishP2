@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 
 namespace P2FixAnAppDotNetCode.Models.Services
@@ -22,10 +23,21 @@ namespace P2FixAnAppDotNetCode.Models.Services
         /// </summary>
         public string SetCulture(string language)
         {
-            string culture = "";
+            if( language == "Spanish")
+            {
+                language = "es";
+            }
+            if (language == "French")
+            {
+                language = "fr";
+            }
+            if (language == "English")
+            {
+                language = "en";
+            }
+            string culture = language;
             // TODO complete the code 
             // Default language is "en", french is "fr" and spanish is "es".
-            
             return culture;
         }
 
