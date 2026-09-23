@@ -132,6 +132,9 @@
   <data name="EnterDetails" xml:space="preserve">
     <value>Et on s'occupe de votre commande tout de suite !</value>
   </data>
+  <data name="ErrorMissingName" xml:space="preserve">
+    <value>Veuillez entrer un nom</value>
+  </data>
   <data name="Location" xml:space="preserve">
     <value>Localisation</value>
   </data>
