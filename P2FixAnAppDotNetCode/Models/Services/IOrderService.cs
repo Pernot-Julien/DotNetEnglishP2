@@ -3,5 +3,7 @@
     public interface IOrderService
     {
         void SaveOrder(Order order);
+        void UpdateInventory();
+
     }
 }

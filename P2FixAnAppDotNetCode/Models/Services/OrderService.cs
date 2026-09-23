@@ -32,7 +32,7 @@ namespace P2FixAnAppDotNetCode.Models.Services
         /// <summary>
         /// Update the product quantities inventory and clears the cart
         /// </summary>
-        private void UpdateInventory()
+        public void UpdateInventory()
         {
             _productService.UpdateProductQuantities(_cart as Cart);
             _cart.Clear();
