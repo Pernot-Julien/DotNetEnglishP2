@@ -117,37 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Adress" xml:space="preserve">
-    <value>Adress</value>
+  <data name="ErrorMissingAddress" xml:space="preserve">
+    <value>Entrer une adresse</value>
   </data>
-  <data name="City" xml:space="preserve">
-    <value>City</value>
+  <data name="ErrorMissingCity" xml:space="preserve">
+    <value>Entrer une ville</value>
   </data>
-  <data name="CompleteOrder" xml:space="preserve">
-    <value>Complete order</value>
+  <data name="ErrorMissingCountry" xml:space="preserve">
+    <value>Entrer un pays</value>
   </data>
-  <data name="Country" xml:space="preserve">
-    <value>Country</value>
+  <data name="ErrorMissingName" xml:space="preserve">
+    <value>Entrer un nom</value>
   </data>
-  <data name="EnterDetails" xml:space="preserve">
-    <value>Please enter your details, and we'll ship your goods right away!</value>
-  </data>
-  <data name="Location" xml:space="preserve">
-    <value>Location</value>
-  </data>
-  <data name="Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="OrderTitle" xml:space="preserve">
-    <value>Please check out</value>
-  </data>
-  <data name="ShipSoon" xml:space="preserve">
-    <value>We'll ship your goods as soon as possible.</value>
-  </data>
-  <data name="ShipTo" xml:space="preserve">
-    <value>Ship to</value>
-  </data>
-  <data name="Zip" xml:space="preserve">
-    <value>Zip</value>
+  <data name="ErrorMissingZip" xml:space="preserve">
+    <value>Entre un code postal</value>
   </data>
 </root>
