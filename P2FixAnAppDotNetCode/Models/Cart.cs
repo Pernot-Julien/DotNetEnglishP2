@@ -42,20 +42,15 @@ namespace P2FixAnAppDotNetCode.Models
                 newCartLine.Product = product;
                 newCartLine.Quantity = quantity;
 
-                bool sameProduct = false;
-
-                foreach (CartLine cartLine in cartLineList)
-                {
-                    if (cartLine.Product.Id == product.Id)
-                    {
-                        cartLine.Quantity += quantity;
-                        sameProduct = true;
-                    }
-                }
-                if (sameProduct == false) 
+                if (cartLineList.Where(x => x.Product.Id == product.Id).FirstOrDefault()==null)
                 {
                     cartLineList.Add(newCartLine);
-                }    
+                } 
+                else
+                {
+                    cartLineList.Where(x => x.Product.Id == product.Id).FirstOrDefault().Quantity += quantity;
+                }
+              
             }
         }
 
@@ -102,17 +97,9 @@ namespace P2FixAnAppDotNetCode.Models
         /// </summary>
         public Product FindProductInCartLines(int productId)
         {
-            // TODO implement the method
-            List<CartLine> cartLineList = GetCartLineList();
-            Product findProductID = null;
-            foreach (CartLine cartLineListItem in cartLineList)
-            {
-                if (productId == cartLineListItem.Product.Id)
-                {
-                    findProductID = cartLineListItem.Product;
-                }
-            }
-            return findProductID;
+            return GetCartLineList()
+                   .FirstOrDefault(x => x.Product.Id == productId)
+                   ?.Product;
         }
 
         /// <summary>
